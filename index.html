@@ -1,46 +1,692 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZEITA</title>
-    <meta name="description" content="Descripción del sitio para SEO">
-    <!-- Enlace a estilos CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ZEITA | Documental Sudamericano</title>
+  <meta name="description" content="ZEITA: proyecto documental sobre los orígenes del Sudamericano y su evolución hasta hoy. Testimonios, archivo, identidad y comunidad." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,200..900&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src=""></script>
+
 </head>
+
 <body>
-    <header>
-        <h1>ZEITA Sudamericano</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Servicios</a></li>
-            </ul>
-        </nav>
-    </header>
+  
+  <!-- NAV -->
+  <div class="nav" role="banner">
+    <div class="nav__inner">
+  <!-- Logo circular + texto a la izquierda -->
+  <a class="brand" href="#inicio" aria-label="ZEITA, inicio">
+  <img src="Imágenes/LOGO-N.jpeg" alt="" class="brand-logo" aria-hidden="true">
+  <div>
+    <span>ZEITA</span>
+    <em>Documental Sudamericano</em>
+  </div>
+</a>
 
-    <main>
-        <section>
-            <h2>Sección Principal</h2>
-            <article>
-                <h3>Artículo Independiente</h3>
-                <p>
-                    Documental ZEITA: Historia y evolución de la Unidad Educativa Particular Sudamericano.
-                    Contenido del artículo...
-                </p>
-            </article>
+
+  <!-- Enlaces principales centrados, siempre en fila -->
+  <nav class="nav__links" aria-label="Secciones principales">
+    <a href="#proyecto">El proyecto</a>
+    <a href="#origenes">Orígenes</a>
+    <a href="#lenguaje">Lenguaje</a>
+    <a href="#hoy">ZEITA hoy</a>
+  </nav>
+
+  <!-- Derecha: botón + secundarios en menú desplegable -->
+  <div class="nav__cta">
+    <!-- Menú móvil -->
+    <button class="btn menuBtn" id="menuBtn" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      Menú
+    </button>
+
+    <!-- Botón Ver teaser -->
+    <a class="btn btn--gold" href="#trailer">
+      <span class="triangle" aria-hidden="true"></span>
+      Ver teaser
+    </a>
+
+    <!-- Botón desplegable + información -->
+    <button class="btn-info" id="infoBtn" aria-haspopup="true" aria-expanded="false" aria-controls="infoMenu">
+      + Información
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="transform: rotate(0deg); transition: transform 0.3s;">
+        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <!-- Menú desplegable -->
+    <div class="dropdown-menu" id="infoMenu" role="menu" aria-label="Más información">
+      <a href="sobre-nosotros.html" role="menuitem">Sobre nosotros</a>
+      <a href="contacto.html" role="menuitem">Contáctanos</a>
+      <a href="redes.html" role="menuitem">Redes</a>
+      <a href="galeria.html" role="menuitem">Galería</a>
+    </div>
+  </div>
+</div>
+  </div>
+
+  <!-- Banner largo -->
+  <div class="banner-section" style="margin:30px 0;">
+    <img src="Imágenes/BANNER.jpeg" alt="Banner ZEITA" style="width:100%; height:auto; display:block; border-radius:var(--radius-xl); box-shadow:var(--shadow);">
+  </div>
+
+  <!-- MOBILE DRAWER -->
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menú">
+    <div class="drawer__panel">
+      <header>
+        <div class="brand" style="gap:10px">
+          <span class="mark" aria-hidden="true"></span>
+          <span>ZEITA</span>
+          <em>Menú</em>
+        </div>
+        <button class="btn" id="closeDrawer">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Cerrar
+        </button>
+      </header>
+      <nav aria-label="Navegación móvil">
+        <a href="#proyecto" data-close>El proyecto</a>
+        <a href="#origenes" data-close>Orígenes</a>
+        <a href="#lenguaje" data-close>Lenguaje</a>
+        <a href="#trailer" data-close>Teaser</a>
+        <a href="#hoy" data-close>ZEITA hoy</a>
+      </nav>
+    </div>
+  </div>
+
+  <main id="inicio" class="hero">
+    <div class="wrap">
+      <div class="hero__grid">
+        <section class="hero__copy reveal">
+          <div class="hero__titleRow">
+            <div class="tag">
+              <b>Archivo · Testimonios</b>
+              <span class="muted">Memoria, identidad y comunidad</span>
+            </div>
+          </div>
+
+          <h1>ZEITA</h1>
+          <p class="hero__lede">
+            Un documental que recorre los orígenes del Sudamericano y su evolución hasta hoy: relatos, huellas y decisiones
+            que construyen una institución viva.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--gold" href="#proyecto">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Explorar proyecto
+            </a>
+            <a class="btn" href="#origenes">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 6v12m0 0l-5-5m5 5l5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Ir a la línea de tiempo
+            </a>
+          </div>
+
+          <div class="metaRow stagger" data-stagger>
+            <div class="chip">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M8 7h8M8 12h8M8 17h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M6 3h12a2 2 0 0 1 2 2v14l-4-3-4 3-4-3-4 3V5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+              <div>
+                <strong>Narrativa</strong>
+                <span>De origen a presente</span>
+              </div>
+            </div>
+
+            <div class="chip">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 8h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              <div>
+                <strong>Archivo</strong>
+                <span>Fotos, documentos y memoria</span>
+              </div>
+            </div>
+
+            <div class="chip">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 7v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div>
+                <strong>Capítulos</strong>
+                <span>Ejes temáticos y épocas</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rule" aria-hidden="true"></div>
         </section>
-        
-        <aside>
-            <h3>Barra lateral</h3>
-            <p>Información relacionada o enlaces...</p>
-        </aside>
-    </main>
 
-    <footer>
-        <p>&copy; 2026 Mi Sitio Web. Todos los derechos reservados.</p>
-    </footer>
+        <aside class="hero__poster reveal" aria-label="Logo ZEITA">
+          <img src="Imágenes/LOGO-B.jpeg" alt="Logo ZEITA" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-xl);">
+          
+          <div class="poster__inner">
+            <div class="poster__badge">
+              <i aria-hidden="true"></i>
+              Edición especial — presentación del proyecto
+            </div>
+
+            <h2 class="poster__title">Una historia contada con rigor y emoción.</h2>
+            <p class="poster__sub">
+              ZEITA organiza el pasado en escenas claras: contexto, voces, archivo y consecuencias. Un recorrido que
+              conecta generaciones.
+            </p>
+
+            <div class="poster__stats" aria-label="Indicadores del documental">
+              <div class="stat">
+                <b>Enfoque</b>
+                <span>Memoria institucional</span>
+              </div>
+              <div class="stat">
+                <b>Formato</b>
+                <span>Capítulos + archivo</span>
+              </div>
+              <div class="stat">
+                <b>Objetivo</b>
+                <span>Conectar generaciones</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- EL PROYECTO -->
+  <section id="proyecto" class="section">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <div>
+          <div class="kicker">El Proyecto</div>
+          <h2>ZEITA como pieza documental</h2>
+        </div>
+        <p class="muted" style="max-width:52ch">
+          Un entorno de presentación con estética de “archivo vivo”: editorial, oscuro, cálido y con acento dorado.
+        </p>
+      </div>
+
+      <div class="grid stagger" data-stagger>
+        <article class="card">
+          <div class="card__top">
+            <span class="pill"><span class="dot" aria-hidden="true"></span> Propósito</span>
+          </div>
+          <h3>Preservar la memoria del Sudamericano</h3>
+          <p>
+            ZEITA nace para ordenar lo que se recuerda, lo que se documenta y lo que se transmite. No solo “contar”,
+            sino dejar un registro con contexto, detalles y voces reales.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <span class="pill"><span class="dot" aria-hidden="true"></span> Mirada</span>
+          </div>
+          <h3>Una narrativa de continuidad</h3>
+          <p>
+            Orígenes → consolidación → actualidad. Cada etapa se entiende como consecuencia de decisiones, valores y
+            comunidad: estudiantes, docentes y familias.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <span class="pill"><span class="dot" aria-hidden="true"></span> Material</span>
+          </div>
+          <h3>Archivo + testimonios + escenas</h3>
+          <p>
+            El documental se apoya en fotografías, documentos y relatos. La mezcla de registros crea una sensación de
+            “pasado presente”, clara y emotiva.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <span class="pill"><span class="dot" aria-hidden="true"></span> Tono</span>
+          </div>
+          <h3>Rigor, cercanía y belleza</h3>
+          <p>
+            Un lenguaje visual sobrio con textura (grano, “film”), acentos cálidos y tipografía editorial para que se
+            sienta como un póster de estreno.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORÍGENES / TIMELINE -->
+  <section id="origenes" class="section">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <div>
+          <div class="kicker">Orígenes</div>
+          <h2>Línea de tiempo: del inicio a la institución</h2>
+        </div>
+        <p class="muted" style="max-width:52ch">
+          Una estructura que te permite “ver” el paso del tiempo. Puedes reemplazar fechas y descripciones con datos reales.
+        </p>
+      </div>
+
+      <div class="timeline stagger" data-stagger>
+        <article class="event">
+          <div class="event__inner">
+            <div class="event__when">
+              <b>Fundación</b>
+              <span>Primeros años</span>
+            </div>
+            <div class="event__body">
+              <h3>La visión que lo inicia todo</h3>
+              <p>
+                El Sudamericano surge como una apuesta educativa con valores claros: disciplina, formación integral y
+                sentido de pertenencia. Aquí nace el tono de toda la historia.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="event__inner">
+            <div class="event__when">
+              <b>Consolidación</b>
+              <span>Etapa de crecimiento</span>
+            </div>
+            <div class="event__body">
+              <h3>Expansión, reputación y comunidad</h3>
+              <p>
+                La institución amplía su propuesta académica, fortalece su presencia en la comunidad y construye una
+                identidad reconocible. Tradición y exigencia se vuelven marca.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="event__inner">
+            <div class="event__when">
+              <b>Transformación</b>
+              <span>Modernización</span>
+            </div>
+            <div class="event__body">
+              <h3>Metodologías, tecnología y nuevas aulas</h3>
+              <p>
+                Se integran herramientas digitales, plataformas y métodos activos. El documental muestra el “cómo” y el
+                “por qué” de cada cambio, sin perder el hilo de origen.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="event__inner">
+            <div class="event__when">
+              <b>Hoy</b>
+              <span>Presente vivo</span>
+            </div>
+            <div class="event__body">
+              <h3>La esencia permanece, el entorno evoluciona</h3>
+              <p>
+                ZEITA cierra el recorrido conectando generaciones: lo que se mantiene (valores, identidad) y lo que se
+                adapta (contexto, aprendizaje, comunidad).
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LENGUAJE / TRAILER -->
+  <section id="lenguaje" class="section">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <div>
+          <div class="kicker">Lenguaje</div>
+          <h2>Cómo se cuenta: ritmo, detalle y atmósfera</h2>
+        </div>
+        <p class="muted" style="max-width:52ch">
+          Un “teaser” visual en CSS, con notas de dirección para que la presentación parezca un lanzamiento.
+        </p>
+      </div>
+
+      <div id="trailer" class="trailer reveal" aria-label="Sección de teaser">
+        <div class="trailer__grid">
+          <div class="screen" aria-label="Pantalla teaser (visual abstracto)">
+            <div class="play">
+              <div class="playBtn" role="button" tabindex="0" aria-label="Reproducir teaser (demo visual)">
+                <span class="triangle" aria-hidden="true"></span>
+                <span><strong style="font-weight:850; letter-spacing:.02em;">Reproducir teaser</strong> <span class="muted">(demo)</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="trailer__panel">
+            <h3 style="margin:0">Ejes narrativos (sugeridos)</h3>
+            <ul class="list">
+              <li class="li">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 3h12v18H6V3Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M9 7h6M9 11h6M9 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <div>
+                  <b>Archivo y contexto</b>
+                  <span>Documentos, fotos, recortes, escenas que ubican cada etapa.</span>
+                </div>
+              </li>
+
+              <li class="li">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M4 21a8 8 0 0 1 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <div>
+                  <b>Testimonios</b>
+                  <span>Voces de estudiantes, docentes y familias: vivencias y cambios.</span>
+                </div>
+              </li>
+
+              <li class="li">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M8 10h8M8 14h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <div>
+                  <b>Identidad institucional</b>
+                  <span>Valores, tradición, símbolos y pertenencia como columna vertebral.</span>
+                </div>
+              </li>
+
+              <li class="li">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 3l9 6-9 6-9-6 9-6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M3 15l9 6 9-6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+                <div>
+                  <b>Educación moderna</b>
+                  <span>Tecnología, metodologías activas y el presente como consecuencia.</span>
+                </div>
+              </li>
+            </ul>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top: 2px;">
+              <a class="btn" href="#hoy">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M7 17l10-10M10 7h7v7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Continuar
+              </a>
+              <a class="btn btn--gold" href="#contacto">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 4h16v16H4V4Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M7 9h10M7 12h10M7 15h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Proponer entrevistas
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:18px"></div>
+
+      <div class="quotes">
+        <blockquote class="reveal">
+          <p>
+            “ZEITA no es solo un recuento: es un mapa emocional. Un archivo que respira. Cada escena pregunta:
+            ¿qué se conserva cuando todo cambia?”
+          </p>
+          <footer>— Nota de dirección (texto de ejemplo para tu proyecto)</footer>
+        </blockquote>
+
+        <aside class="quoteAside reveal" aria-label="Ficha editorial">
+          <div class="mini">
+            <b>Intención</b>
+            <span>Hacer visible lo invisible: decisiones, hábitos, identidad y comunidad.</span>
+          </div>
+          <div class="mini">
+            <b>Estilo</b>
+            <span>Oscuro editorial + oro cálido, textura de film, ritmo de “estreno”.</span>
+          </div>
+          <div class="mini">
+            <b>Entrega</b>
+            <span>Web de presentación para mostrar concepto, estructura y tono del documental.</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZEITA HOY -->
+  <section id="hoy" class="section">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <div>
+          <div class="kicker">ZEITA hoy</div>
+          <h2>Un homenaje narrativo a la historia viva</h2>
+        </div>
+        <p class="muted" style="max-width:52ch">
+          Esta sección funciona como cierre: tradición + presente. Ideal para agregar un llamado a colaborar.
+        </p>
+      </div>
+
+      <div class="grid stagger" data-stagger>
+        <article class="card">
+          <div class="card__top">
+            <span class="pill"><span class="dot" aria-hidden="true"></span> Educación</span>
+          </div>
+          <h3>Moderna, sin perder el carácter</h3>
+          <p>
+            Integración de tecnología, plataformas y metodologías activas; pero con una identidad sólida que guía el día a día.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <span class="pill"><span class="dot" aria-hidden="true"></span> Identidad</span>
+          </div>
+          <h3>Valores como hilo conductor</h3>
+          <p>
+            Lo que el documental busca capturar no es solo “lo que pasó”, sino lo que permanece: pertenencia, hábitos, símbolos.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <span class="pill"><span class="dot" aria-hidden="true"></span> Comunidad</span>
+          </div>
+          <h3>Personas que sostienen la historia</h3>
+          <p>
+            Estudiantes, docentes y familias construyen el presente. ZEITA los ubica como protagonistas: voces que explican el cambio.
+          </p>
+        </article>
+
+        <article class="card" id="contacto">
+          <div class="card__top">
+            <span class="pill"><span class="dot" aria-hidden="true"></span> Participación</span>
+          </div>
+          <h3>¿Tienes material o recuerdos?</h3>
+          <p style="margin-bottom:12px">
+            Si quieres sumar al documental, reúne fotos, documentos o anécdotas. Este bloque puede convertirse en un formulario real.
+          </p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn--gold" href="#inicio">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 5l7 7-7 7-7-7 7-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+              Volver al póster
+            </a>
+            <a class="btn" href="#origenes">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 12h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M14 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Revisar etapas
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="siteFooter" role="contentinfo">
+    <div class="wrap">
+      <div class="footerGrid reveal">
+        <div>
+          <div class="brand" style="margin-bottom:10px">
+            <span class="mark" aria-hidden="true"></span>
+            <span>ZEITA</span>
+            <em>Proyecto Documental</em>
+          </div>
+          <p class="fine">
+            © <span id="year"></span> ZEITA — Documental Sudamericano. <br/>
+            Diseño editorial oscuro con textura de film, sin imágenes externas.
+          </p>
+        </div>
+        <div class="footLinks" aria-label="Enlaces">
+          <a href="#proyecto">El proyecto</a>
+          <a href="#origenes">Orígenes</a>
+          <a href="#lenguaje">Lenguaje</a>
+          <a href="#hoy">ZEITA hoy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Año automático
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+
+    // Reveals y stagger
+    const revealEls = document.querySelectorAll('.reveal, [data-stagger]');
+    if (revealEls.length > 0) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealEls.forEach(el => observer.observe(el));
+    }
+
+    // Mobile drawer
+    const drawer = document.getElementById('drawer');
+    const menuBtn = document.getElementById('menuBtn');
+    const closeDrawer = document.getElementById('closeDrawer');
+
+    if (menuBtn && drawer) {
+      const openDrawer = () => {
+        drawer.classList.add('open');
+        menuBtn.setAttribute('aria-expanded', 'true');
+        if (closeDrawer) closeDrawer.focus();
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeDrawerFn = () => {
+        drawer.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        menuBtn.focus();
+      };
+
+      menuBtn.addEventListener('click', openDrawer);
+      if (closeDrawer) closeDrawer.addEventListener('click', closeDrawerFn);
+
+      drawer.addEventListener('click', (e) => {
+        if (e.target === drawer) closeDrawerFn();
+      });
+
+      drawer.querySelectorAll('[data-close]').forEach(link => {
+        link.addEventListener('click', closeDrawerFn);
+      });
+    }
+
+    // Play teaser
+    const playBtn = document.querySelector('.playBtn');
+    if (playBtn) {
+      playBtn.addEventListener('click', () => {
+        playBtn.animate([
+          { transform: 'translateY(0) scale(1)', filter: 'brightness(1)' },
+          { transform: 'translateY(-2px) scale(1.02)', filter: 'brightness(1.12)' },
+          { transform: 'translateY(0) scale(1)', filter: 'brightness(1)' }
+        ], { duration: 420, easing: 'cubic-bezier(.2,.9,.2,1)' });
+      });
+
+      playBtn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          playBtn.click();
+        }
+      });
+    }
+
+    // Dropdown Información
+    const infoBtn = document.getElementById('infoBtn');
+    const infoDropdown = document.getElementById('infoDropdown');
+
+    if (infoBtn && infoDropdown) {
+      infoBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        infoDropdown.classList.toggle('open');
+        const isOpen = infoDropdown.classList.contains('open');
+        infoBtn.setAttribute('aria-expanded', isOpen);
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!infoBtn.contains(e.target) && !infoDropdown.contains(e.target)) {
+          infoDropdown.classList.remove('open');
+          infoBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+  const infoBtn = document.getElementById('infoBtn');
+  const infoMenu = document.getElementById('infoMenu');
+  const arrowIcon = infoBtn.querySelector('svg');
+
+  infoBtn.addEventListener('click', () => {
+    const expanded = infoBtn.getAttribute('aria-expanded') === 'true';
+    infoBtn.setAttribute('aria-expanded', String(!expanded));
+    infoMenu.classList.toggle('show');
+
+    // Rotar icono flecha
+    if (!expanded) {
+      arrowIcon.style.transform = 'rotate(180deg)';
+    } else {
+      arrowIcon.style.transform = 'rotate(0deg)';
+    }
+  });
+
+  // Cerrar menú si se hace clic fuera
+  document.addEventListener('click', (e) => {
+    if (!infoBtn.contains(e.target) && !infoMenu.contains(e.target)) {
+      infoBtn.setAttribute('aria-expanded', 'false');
+      infoMenu.classList.remove('show');
+      arrowIcon.style.transform = 'rotate(0deg)';
+    }
+  });
+});
+
+  </script>
 </body>
 </html>
-
-
