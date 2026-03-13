@@ -2,23 +2,127 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Redes Sociales | ZEITA</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Google Fonts -->
+  <meta name="description" content="Sigue el proyecto ZEITA en redes sociales: avances, detrás de cámaras, testimonios y más." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,200..900&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- NAV igual -->
 
-  <main class="section" style="padding-top:100px;">
+  <!-- NAV (igual que index.html) -->
+  <div class="nav" role="banner">
+    <div class="nav__inner">
+      <a class="brand" href="index.html" aria-label="ZEITA, inicio">
+        <img src="Imágenes/LOGO-N.jpeg" alt="" class="brand-logo" aria-hidden="true">
+        <span>ZEITA</span>
+        <em>Documental Sudamericano</em>
+      </a>
+
+      <nav class="nav__links" aria-label="Secciones principales">
+        <a href="index.html#proyecto">El proyecto</a>
+        <a href="index.html#origenes">Orígenes</a>
+        <a href="index.html#lenguaje">Lenguaje</a>
+        <a href="index.html#entrevistas">Entrevistas</a>
+      </nav>
+
+      <div class="nav__cta">
+        <button class="btn menuBtn" id="menuBtn" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Menú
+        </button>
+
+        <div style="position:relative;">
+          <button class="btn btn--info" id="infoBtn" aria-haspopup="true" aria-expanded="false">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" style="margin-right:8px;">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <path d="M12 16v-4m0-4h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            Información
+          </button>
+
+          <div class="info-dropdown" id="infoDropdown">
+            <a href="sobre-nosotros.html">Sobre nosotros</a>
+            <a href="contacto.html">Contáctanos</a>
+            <a href="redes.html">Redes</a>
+            <a href="galeria.html">Galería</a>
+          </div>
+        </div>
+
+        <a class="btn btn--gold" href="index.html#trailer">
+          <span class="triangle" aria-hidden="true"></span>
+          Ver teaser
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE DRAWER (igual que index, con enlace a index.html) -->
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menú">
+    <div class="drawer__panel">
+      <header>
+        <div class="brand" style="gap:10px">
+          <img src="Imagenes/LOGO-B.jpg" alt="" class="brand-logo" aria-hidden="true">
+          <span>ZEITA</span>
+          <em>Menú</em>
+        </div>
+        <button class="btn" id="closeDrawer">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Cerrar
+        </button>
+      </header>
+      <nav aria-label="Navegación móvil">
+        <a href="index.html#proyecto" data-close>El proyecto</a>
+        <a href="index.html#origenes" data-close>Orígenes</a>
+        <a href="index.html#lenguaje" data-close>Lenguaje</a>
+        <a href="index.html#entrevistas" data-close>Entrevistas</a>
+        <hr style="border:0; border-top:1px solid rgba(255,255,255,.1); margin:12px 0;">
+        <a href="sobre-nosotros.html" data-close>Sobre nosotros</a>
+        <a href="contacto.html" data-close>Contáctanos</a>
+        <a href="redes.html" data-close>Redes</a>
+        <a href="galeria.html" data-close>Galería</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="section" style="padding-top: clamp(100px, 15vh, 180px);">
     <div class="wrap">
-      <h1 style="text-align:center; margin-bottom:40px;">Redes Sociales</h1>
-      <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
-        <a href="https://instagram.com/zeita_doc" target="_blank" class="btn btn--gold">Instagram</a>
-        <a href="https://twitter.com/zeita_doc" target="_blank" class="btn btn--gold">Twitter / X</a>
-        <a href="https://youtube.com/@zeita_doc" target="_blank" class="btn btn--gold">YouTube</a>
+      <h1 style="text-align:center; margin-bottom:2rem;">Nuestras Redes Sociales</h1>
+      <p style="text-align:center; max-width:700px; margin:0 auto 3rem; color:var(--muted); font-size:1.15rem;">
+        Síguenos para ver avances del documental, detrás de cámaras, fragmentos de entrevistas, fotos de archivo y más contenido exclusivo del proyecto ZEITA.
+      </p>
+
+      <div style="display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; margin-bottom:4rem;">
+        <a href="https://www.instagram.com/zeita.doc" target="_blank" class="btn btn--gold" style="min-width:220px;">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.326 3.608 1.301.975.975 1.24 2.242 1.301 3.608.058 1.266.069 1.646.069 4.85s-.012 3.584-.069 4.85c-.062 1.366-.326 2.633-1.301 3.608-.975.975-2.242 1.24-3.608 1.301-1.266.058-1.646.069-4.85.069s-3.584-.012-4.85-.069c-1.366-.062-2.633-.326-3.608-1.301-.975-.975-1.24-2.242-1.301-3.608C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.069-4.85c.062-1.366.326-2.633 1.301-3.608C5.513 2.489 6.78 2.225 8.146 2.163 8.416 2.163 8.796 2.151 12 2.163zM12 0C8.741 0 8.332.015 7.052.072 5.775.13 4.905.333 4.14.6c-.766.267-1.415.62-2.065 1.27C1.02 2.725.667 3.374.4 4.14.133 4.905-.07 5.775-.072 7.052-.015 8.332 0 8.741 0 12s-.015 3.668.072 4.948c.062 1.277.265 2.147.532 2.912.267.766.62 1.415 1.27 2.065.65.65 1.299 1.003 2.065 1.27.765.267 1.635.47 2.912.532 1.28.057 1.689.072 4.948.072s3.668-.015 4.948-.072c1.277-.062 2.147-.265 2.912-.532.766-.267 1.415-.62 2.065-1.27.65-.65 1.003-1.299 1.27-2.065.267-.765.47-1.635.532-2.912.057-1.28.072-1.689.072-4.948s-.015-3.668-.072-4.948c-.062-1.277-.265-2.147-.532-2.912-.267-.766-.62-1.415-1.27-2.065-.65-.65-1.299-1.003-2.065-1.27C19.145.333 18.275.13 17 0.072 15.668.015 15.259 0 12 0z"/></svg>
+          Instagram
+        </a>
+        <a href="https://x.com/zeita_doc" target="_blank" class="btn btn--gold" style="min-width:220px;">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          X / Twitter
+        </a>
+        <a href="https://www.youtube.com/@zeita_doc" target="_blank" class="btn btn--gold" style="min-width:220px;">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M21.543 6.498C22 8.28 22 12 22 12s0 3.72-.457 5.502c-.254.985-.997 1.76-1.938 2.022C18.72 20 12 20 12 20s-6.72 0-8.605-.498c-.94-.262-1.684-1.037-1.938-2.022C1 15.72 1 12 1 12s0-3.72.457-5.502c.254-.985.997-1.76 1.938-2.022C5.28 4 12 4 12 4s6.72 0 8.605.498c.94.262 1.684 1.037 1.938 2.022zM10 15.5l6-3.5-6-3.5v7z"/></svg>
+          YouTube
+        </a>
+      </div>
+
+      <div style="text-align:center; margin-top:4rem; color:var(--muted);">
+        <p>Próximamente más plataformas y contenido exclusivo.</p>
+        <p style="margin-top:1rem;">¡Activa la campanita para no perderte nada!</p>
       </div>
     </div>
   </main>
+
+  <!-- Script (mismo que index.html) -->
+  <script>
+    // Copia aquí el script completo de tu index.html (incluyendo drawer, dropdown, etc.)
+  </script>
 </body>
 </html>
