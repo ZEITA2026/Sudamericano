@@ -2,23 +2,53 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contáctanos | ZEITA</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Google Fonts igual -->
+  <meta name="description" content="¿Quieres colaborar con ZEITA? Contáctanos para compartir material, anécdotas o proponer entrevistas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,200..900&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- NAV igual -->
 
-  <main class="section" style="padding-top:100px;">
+  <!-- NAV (igual que index.html) -->
+  <div class="nav" role="banner">
+    <!-- Copia aquí el nav completo -->
+  </div>
+
+  <!-- MOBILE DRAWER -->
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menú">
+    <!-- Copia aquí el drawer -->
+  </div>
+
+  <main class="section" style="padding-top: clamp(100px, 15vh, 180px);">
     <div class="wrap">
-      <h1 style="text-align:center; margin-bottom:40px;">Contáctanos</h1>
-      <p style="max-width:600px; margin:0 auto; text-align:center;">
-        ¿Tienes material histórico, anécdotas o quieres colaborar? Escríbenos:
-        <br><strong>zeita.documental@gmail.com</strong>
+      <h1 style="text-align:center; margin-bottom:2rem;">Contáctanos</h1>
+
+      <p style="text-align:center; max-width:700px; margin:0 auto 3rem; font-size:1.15rem; color:var(--muted);">
+        ¿Tienes fotos antiguas, documentos históricos, anécdotas personales o conoces a alguien que debería ser entrevistado para ZEITA? ¡Queremos escucharte!
       </p>
-      <!-- Aquí puedes agregar un formulario real más adelante -->
+
+      <div style="max-width:600px; margin:0 auto; background:rgba(255,255,255,0.03); padding:2.5rem; border-radius:var(--radius-xl); border:1px solid rgba(var(--gold),0.15);">
+        <h3 style="text-align:center; margin-bottom:1.5rem; color:var(--gold);">Escríbenos directamente</h3>
+        <p style="text-align:center; font-size:1.3rem; margin:1rem 0;">
+          <strong>zeita.documental@gmail.com</strong>
+        </p>
+        <p style="text-align:center; color:var(--muted);">
+          También puedes escribirnos por Instagram o WhatsApp:<br>
+          <strong>@zeita.doc</strong> • +593 99 999 9999 (solo mensajes)
+        </p>
+      </div>
+
+      <p style="text-align:center; margin-top:3rem; color:var(--muted); font-style:italic;">
+        Todas las colaboraciones son anónimas si así lo prefieres. Gracias por ayudarnos a reconstruir esta historia.
+      </p>
     </div>
   </main>
+
+  <!-- Footer -->
+
+  <!-- Script -->
 </body>
 </html>
