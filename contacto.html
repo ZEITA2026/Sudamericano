@@ -1,54 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contáctanos | ZEITA</title>
-  <meta name="description" content="¿Quieres colaborar con ZEITA? Contáctanos para compartir material, anécdotas o proponer entrevistas." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,200..900&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctanos | ZEITA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Poppins:wght@400;700&family=Fraunces:opsz,wght@9..144,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- NAV (igual que index.html) -->
-  <div class="nav" role="banner">
-    <!-- Copia aquí el nav completo -->
-  </div>
-
-  <!-- MOBILE DRAWER -->
-  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menú">
-    <!-- Copia aquí el drawer -->
-  </div>
-
-  <main class="section" style="padding-top: clamp(100px, 15vh, 180px);">
-    <div class="wrap">
-      <h1 style="text-align:center; margin-bottom:2rem;">Contáctanos</h1>
-
-      <p style="text-align:center; max-width:700px; margin:0 auto 3rem; font-size:1.15rem; color:var(--muted);">
-        ¿Tienes fotos antiguas, documentos históricos, anécdotas personales o conoces a alguien que debería ser entrevistado para ZEITA? ¡Queremos escucharte!
-      </p>
-
-      <div style="max-width:600px; margin:0 auto; background:rgba(255,255,255,0.03); padding:2.5rem; border-radius:var(--radius-xl); border:1px solid rgba(var(--gold),0.15);">
-        <h3 style="text-align:center; margin-bottom:1.5rem; color:var(--gold);">Escríbenos directamente</h3>
-        <p style="text-align:center; font-size:1.3rem; margin:1rem 0;">
-          <strong>zeita.documental@gmail.com</strong>
-        </p>
-        <p style="text-align:center; color:var(--muted);">
-          También puedes escribirnos por Instagram o WhatsApp:<br>
-          <strong>@zeita.doc</strong> • +593 99 999 9999 (solo mensajes)
-        </p>
-      </div>
-
-      <p style="text-align:center; margin-top:3rem; color:var(--muted); font-style:italic;">
-        Todas las colaboraciones son anónimas si así lo prefieres. Gracias por ayudarnos a reconstruir esta historia.
-      </p>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <a href="index.html">Historia Institucional</a>
+        <span>-</span>
+        <a href="index.html">Producción Cinematográfica</a>
     </div>
-  </main>
 
-  <!-- Footer -->
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="index.html" class="brand-container">
+            <span class="zeita-text">ZEITA</span>
+            <div class="logo-box">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjLt5H2i5HwzHPmCQc_kf-XkdGtcOzWYSc5dw30TAfFcQzuYK7a0mP25NaqrZ0JCBdbOTHUnNi9WnXCPghpH4y3bI_HzHCHfPg467NNL1L9BalnXrrNFHt3OYAxC_20RlxNcPb2S0Rpkte70VE6KuVhKR4rttQyma46-BEvGJAeXU6aSnkHH--1vR6z9Luw" alt="Logotipo ZEITA">
+            </div>
+            <span class="brand-tagline">
+                <span>Historias que</span>
+                <span>Representan</span>
+            </span>
+        </a>
+        
+        <div class="nav-menu">
+            <a href="Entrevistas.html">Entrevistas</a>
+            <a href="Portafolio.html">Portafolio</a>
+            <a href="Cotizar Proyecto.html" class="btn-subscribe">Cotizar Proyecto</a>
+            <a href="#" id="openVideoBtn" class="btn-teaser">▶ Ver Teaser</a>
+            
+            <button id="masBtn" class="btn-mas">Más +</button>
+            
+            <div class="dropdown-menu" id="masDropdown">
+                <a href="sobre-nosotros.html">Sobre Nosotros</a>
+                <a href="contacto.html">Contáctanos</a>
+                <a href="redes.html">Redes Sociales</a>
+                <a href="galeria.html">Galería</a>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Script -->
+    <main class="section">
+        <div class="content-wrapper">
+            <h1 style="text-align:center; margin-bottom: 2rem;">Contáctanos</h1>
+            
+            <p style="text-align:center; max-width: 800px; margin: 0 auto 4rem; font-size: 1.25rem; color: #555;">
+                ¿Tienes material histórico, anécdotas o quieres colaborar con el documental? Estamos listos para escucharte.
+            </p>
+
+            <div class="contact-box" style="max-width: 700px; margin: 0 auto; padding: 50px 40px;">
+                <h3 style="text-align:center; margin-bottom: 2rem; color: var(--primary);">Escríbenos</h3>
+                <p style="text-align:center; font-size: 1.5rem; margin: 1.5rem 0;">
+                    <strong>zeita.documental@gmail.com</strong>
+                </p>
+                <p style="text-align:center; color: #555;">
+                    Instagram: <strong>@zeita_26</strong><br>
+                    WhatsApp: <strong>+593 98 310 3136</strong> (solo mensajes)
+                </p>
+            </div>
+
+            <p style="text-align:center; margin-top: 4rem; font-style:italic; color:#555;">
+                Todas las colaboraciones pueden ser anónimas si así lo prefieres.
+            </p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="background:var(--secondary);color:var(--white);text-align:center;padding:80px 5%;margin-top:60px;">
+        <div style="font-size:3.5rem;">ZEITA</div>
+        <p style="font-size:1.3rem;margin-top:15px;">Productora de Memoria Histórica e Institucional</p>
+        <p style="margin-top:40px;font-size:0.9rem;opacity:0.7;">© <span id="year"></span> ZEITA — Todas las historias que representan</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const masBtn = document.getElementById('masBtn');
+        const masDropdown = document.getElementById('masDropdown');
+        masBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            masDropdown.classList.toggle('show');
+        });
+        document.addEventListener('click', () => masDropdown.classList.remove('show'));
+    </script>
 </body>
 </html>
