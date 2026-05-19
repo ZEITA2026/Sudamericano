@@ -204,7 +204,7 @@
         .trailer { max-width: 1200px; margin: 40px auto; padding: 0 5%; border-radius: var(--radius-xl); background: linear-gradient(180deg, rgba(212,175,55,.1), rgba(255,255,255,.05)); box-shadow: var(--shadow); overflow: hidden; }
         .trailer__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
         .screen { min-height: 380px; background: linear-gradient(180deg, #111, #000); position: relative; display: flex; align-items: center; justify-content: center; }
-        .playBtn { background: rgba(0,0,0,.85); border: 3px solid var(--gold); color: white; padding: 20px 36px; border-radius: 9999px; display: flex; align-items: center; gap: 16px; font-size: 1.3rem; font-weight: 700; box-shadow: 0 20px 50px rgba(0,0,0,.6); transition: all .3s var(--ease); }
+        .playBtn { background: rgba(0,0,0,.85); border: 3px solid var(--gold); color: white; padding: 20px 36px; border-radius: 9999px; display: flex; align-items: center; gap: 16px; font-size: 1.3rem; font-weight: 700; box-shadow: 0 20px 50px rgba(0,0,0,.6); transition: all .3s var(--ease); cursor: pointer; }
         .playBtn:hover { transform: scale(1.08); }
         .triangle { width: 0; height: 0; border-left: 18px solid var(--gold2); border-top: 12px solid transparent; border-bottom: 12px solid transparent; }
         .trailer__panel { padding: 40px; }
@@ -231,8 +231,18 @@
             justify-content: center;
         }
         .video-modal.show { display: flex; }
-        .video-modal-content { width: 90%; max-width: 1100px; position: relative; }
-        .video-modal-content iframe { width: 100%; aspect-ratio: 16 / 9; border: none; border-radius: 12px; box-shadow: var(--shadow); }
+        .video-modal-content { 
+            width: 90%; 
+            max-width: 1100px; 
+            position: relative; 
+        }
+        .video-modal-content iframe { 
+            width: 100%; 
+            aspect-ratio: 16 / 9; 
+            border: none; 
+            border-radius: 12px; 
+            box-shadow: var(--shadow); 
+        }
         .modal-close {
             position: absolute;
             top: -15px;
@@ -323,7 +333,7 @@
     <main class="content-wrapper">
         <h2 class="section-title">Pilares del Documental Institucional</h2>
         <div class="articles-grid">
-            
+            <!-- Todo tu grid se mantiene exactamente igual -->
             <article class="article-card">
                 <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=800&auto=format&fit=crop" alt="Archivos Históricos" class="article-img">
                 <span class="article-category">Investigación</span>
@@ -404,7 +414,7 @@
                 <div class="trailer__grid">
                     <div class="screen">
                         <div class="play">
-                            <div class="playBtn" id="playBtn" role="button" tabindex="0">
+                            <div class="playBtn" id="playBtnInternal" role="button" tabindex="0">
                                 <span class="triangle"></span>
                                 <span><strong>Reproducir teaser</strong> <span style="font-size:0.9rem;opacity:0.7;">(demo)</span></span>
                             </div>
@@ -469,8 +479,15 @@
     <div class="video-modal" id="videoModal">
         <div class="video-modal-content">
             <div class="modal-close" id="closeModal">×</div>
-            <!-- Cambia este enlace cuando tengas tu teaser real -->
-            <iframe id="videoFrame" src="https://www.youtube.com/embed/dQw4w9wgccc" title="Teaser ZEITA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="videoFrame" 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/iQbEF2c8cAU?si=_0AoNSwz6Z5reB4O" 
+                    title="Teaser ZEITA" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen></iframe>
         </div>
     </div>
 
@@ -497,39 +514,43 @@
         }, { threshold: 0.15 });
         document.querySelectorAll('.reveal, [data-stagger]').forEach(el => observer.observe(el));
 
-        // Play button del trailer
-        const playBtn = document.getElementById('playBtn');
-        if (playBtn) {
-            playBtn.addEventListener('click', () => {
-                playBtn.style.transform = 'scale(1.15)';
-                setTimeout(() => playBtn.style.transform = 'scale(1)', 300);
-            });
-        }
-
         // Modal Video
-        const openVideoBtn = document.getElementById('openVideoBtn');
         const videoModal = document.getElementById('videoModal');
         const closeModal = document.getElementById('closeModal');
         const videoFrame = document.getElementById('videoFrame');
 
-        openVideoBtn.addEventListener('click', function(e) {
-            e.preventDefault();
+        function openVideo() {
             videoModal.classList.add('show');
             document.body.style.overflow = 'hidden';
-        });
+            // Activar autoplay
+            videoFrame.src = "https://www.youtube.com/embed/iQbEF2c8cAU?autoplay=1&rel=0&modestbranding=1";
+        }
 
-        closeModal.addEventListener('click', function() {
+        function closeVideo() {
             videoModal.classList.remove('show');
             document.body.style.overflow = '';
-            videoFrame.src = videoFrame.src;
+            videoFrame.src = "https://www.youtube.com/embed/iQbEF2c8cAU?si=_0AoNSwz6Z5reB4O"; // Detiene el video
+        }
+
+        // Botón del navbar
+        document.getElementById('openVideoBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            openVideo();
         });
 
+        // Botón dentro del trailer
+        const playBtnInternal = document.getElementById('playBtnInternal');
+        if (playBtnInternal) {
+            playBtnInternal.addEventListener('click', () => {
+                playBtnInternal.style.transform = 'scale(1.15)';
+                setTimeout(() => playBtnInternal.style.transform = 'scale(1)', 300);
+                openVideo();
+            });
+        }
+
+        closeModal.addEventListener('click', closeVideo);
         videoModal.addEventListener('click', function(e) {
-            if (e.target === videoModal) {
-                videoModal.classList.remove('show');
-                document.body.style.overflow = '';
-                videoFrame.src = videoFrame.src;
-            }
+            if (e.target === videoModal) closeVideo();
         });
 
         // Dropdown Más +
@@ -545,7 +566,7 @@
             masDropdown.classList.remove('show');
         });
 
-        console.log('%c✅ ZEITA — Página completa y lista (todo en un solo archivo HTML)', 'color:#D4AF37;font-size:16px;font-weight:700;');
+        console.log('%c✅ ZEITA — Página mejorada y lista', 'color:#D4AF37;font-size:16px;font-weight:700;');
     </script>
 </body>
 </html>
